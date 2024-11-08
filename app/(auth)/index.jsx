@@ -51,7 +51,7 @@ function AuthPage() {
                     {/* card form */}
                     <View style={{
                         position:'relative',
-                        marginVertical:10,
+                        marginVertical:20,
                         width:'100%',
                     }}>
 
@@ -87,7 +87,7 @@ function AuthPage() {
                         </View>
 
                         {/* FORGOT PASSWORD */}
-                        <View href={'(auth)'} style={{
+                        <View  style={{
                             display:'flex',
                             justifyContent:'flex-end',
                             alignItems:'flex-end',
@@ -140,6 +140,32 @@ function AuthPage() {
                                 <Image source={require('../../assets/images/facebookIcon.png')}  />
                             </TouchableOpacity>
                             {/*  */}
+                        </View>
+
+                        {/* singup */}
+                        <View  style={{
+                            display:'flex',
+                            flexDirection:'row',
+                            justifyContent:'center',
+                            alignItems:'center',
+                            marginTop:20,
+                            gap:5
+                        }}>
+                            <Text style={{
+                                fontSize:13,
+                                color:'#626161',
+                                textAlign:'center'
+                            }}> 
+                             Dont have account?
+                            </Text>
+                            <Link href={'(auth)/signup'} style={{
+                                fontSize:13,
+                                color:'blue',
+                                fontWeight:'600',
+                                textAlign:'center'
+                            }}> 
+                             SignUp
+                            </Link>
                         </View>
                         
                     </View>
