@@ -18,7 +18,9 @@ function AuthPage() {
     let {width,height} = useWindowDimensions()
     const classAuthPageDynamic = classAuthPage(width,height)
     // show password
-    let [showPassword,setShowPassword] = useState(false)
+    let [showPassword,setShowPassword] = useState(false)   
+    // show confirm password
+    let [showConfirmPassword,setShowConfirmPassword] = useState(false)
 
   return (
     <SafeAreaView>
@@ -43,7 +45,7 @@ function AuthPage() {
                         borderBottomWidth:2,
                         borderBottomColor:'#E9BA16'
                         }}>
-                            Sign In
+                            Sign Up
                         </Text>
 
                     </View>
@@ -86,29 +88,36 @@ function AuthPage() {
                             </TouchableOpacity>
                         </View>
 
-                        {/* FORGOT PASSWORD */}
-                        <View  style={{
-                            display:'flex',
-                            justifyContent:'flex-end',
-                            alignItems:'flex-end',
-                        }}>
-                            <Link href={'(auth)'} style={{
-                                fontSize:13,
-                                color:'#626161',
-                                textAlign:'right'
-                            }}>
-                                Forgot Password?
-                            </Link>
+                        {/* input group confirm password password */}
+                        <View style={[classAuthPageDynamic.styleInputAuth,{marginVertical:12,display:'flex',flexDirection:'row'}]}>
+                            <TextInput
+                            style={{
+                                flex:1
+                            }}
+                            placeholder="Confirm Password"
+                            inputMode='text'
+                            cursorColor={'#ddd'}
+                            autoComplete='off'
+                            secureTextEntry={showConfirmPassword ? true : false}
+                            />
+                            {/* icon eye */}
+                            <TouchableOpacity
+                            onPress={()=>{setShowConfirmPassword(!showConfirmPassword)}}
+                            style={{paddingHorizontal:8,display:'flex',justifyContent:'center'}}>
+                                <Ionicons name={showConfirmPassword  ? 'eye-outline' : 'eye-off-outline'  } size={18} />
+                            </TouchableOpacity>
                         </View>
 
                         {/* button login */}
                         <TouchableOpacity style={classAuthPageDynamic.buttonAuth}>
-                              <Text
+                            <Text
                               style={{
                                 color:'#fff',
                                 fontSize:16
                               }}
-                              >Submit</Text>  
+                              >
+                                Submit
+                            </Text>  
                         </TouchableOpacity>
 
                         {/* line  */}
@@ -156,15 +165,15 @@ function AuthPage() {
                                 color:'#626161',
                                 textAlign:'center'
                             }}> 
-                             Don't have an account?
+                            Have an account?
                             </Text>
-                            <Link href={'(auth)/signup'} style={{
+                            <Link href={'(auth)'} style={{
                                 fontSize:13,
                                 color:'blue',
                                 fontWeight:'600',
                                 textAlign:'center'
                             }}> 
-                             Sign Up
+                             Sign In
                             </Link>
                         </View>
                     </View>

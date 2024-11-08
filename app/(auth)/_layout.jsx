@@ -6,6 +6,7 @@ function RootAuth() {
     <>
       <Stack >
       <Stack.Screen name='index' title={'login'} options={{headerShown:false}}/>
+      <Stack.Screen name='signup' title={'signup'} options={{headerShown:false}}/>
     </Stack>
     <StatusBar  barStyle={'light-content'} />
     </>
